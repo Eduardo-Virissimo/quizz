@@ -6,7 +6,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint:prettier:check": "prettier --check .",
+    "lint:prettier:fix": "prettier --write .",
+    "lint:eslint": "eslint .",
+    "lint": "npm run lint:prettier:check && npm run lint:eslint",
+    "prepare": "husky"
   },
   "engines": {
     "node": ">=24"
@@ -29,5 +34,14 @@
     "lint-staged": "^17.6.0",
     "node-pg-migrate": "^9.0.0",
     "prettier": "^3.9.9"
+  },
+  "lint-staged": {
+    "*.{js,jsx,mjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,yml,yaml,css}": [
+      "prettier --write"
+    ]
   }
 }
