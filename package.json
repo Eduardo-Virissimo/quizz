@@ -11,7 +11,9 @@
     "lint:prettier:fix": "prettier --write .",
     "lint:eslint": "eslint .",
     "lint": "npm run lint:prettier:check && npm run lint:eslint",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test:unit": "jest tests/unit --runInBand",
+    "test:watch": "jest --watch"
   },
   "engines": {
     "node": ">=24"
