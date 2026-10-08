@@ -1,0 +1,12 @@
+node_modules
+.next
+out
+coverage
+*.log
+.DS_Store
+# segredos de producao e locais: NUNCA vao para o Git
+.env.production
+.env.tunnel
+.env.backup
+.env*.local
+infra/.env
