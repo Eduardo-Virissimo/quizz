@@ -4,7 +4,7 @@
   "description": "App de quizzes com Next.js e PostgreSQL",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "npm run services:up && npm run migration:up && next dev",
     "build": "next build",
     "start": "next start",
     "lint:prettier:check": "prettier --check .",
@@ -16,7 +16,10 @@
     "test:watch": "jest --watch",
     "services:up": "docker compose -f infra/compose.yaml up -d --wait",
     "services:stop": "docker compose -f infra/compose.yaml stop",
-    "services:down": "docker compose -f infra/compose.yaml down"
+    "services:down": "docker compose -f infra/compose.yaml down",
+    "migration:create": "node-pg-migrate -m infra/migrations create",
+    "migration:up": "dotenv -e .env.development -- node-pg-migrate -m infra/migrations up",
+    "migration:down": "dotenv -e .env.development -- node-pg-migrate -m infra/migrations down"
   },
   "engines": {
     "node": ">=24"
