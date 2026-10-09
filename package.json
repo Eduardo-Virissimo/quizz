@@ -13,7 +13,10 @@
     "lint": "npm run lint:prettier:check && npm run lint:eslint",
     "prepare": "husky",
     "test:unit": "jest tests/unit --runInBand",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "services:up": "docker compose -f infra/compose.yaml up -d --wait",
+    "services:stop": "docker compose -f infra/compose.yaml stop",
+    "services:down": "docker compose -f infra/compose.yaml down"
   },
   "engines": {
     "node": ">=24"
